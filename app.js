@@ -1,6 +1,8 @@
 
 const express = require('express');
+
 const request = require('request');
+
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -15,6 +17,7 @@ app.listen(process.env.PORT || 3000,function(){
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/signup.html');
+  
 });
 
 app.post('/', function(req,res){
@@ -47,6 +50,7 @@ app.post('/', function(req,res){
       'Authorization' : 'Siddhant 63861030106a63fb6380bfa69248fbab-us4'
     },
     body : jsonData
+    
   };
 
     request(options,function(error,response,body){
@@ -56,15 +60,20 @@ app.post('/', function(req,res){
         res.sendFile(__dirname + '/success.html');
       }
       else{
+        
         res.sendFile(__dirname + '/failure.html');
       }
+      
+      
     });
 
 
 });
 
 app.post('/failure.html', function(req,res){
+  
   res.redirect('/');
+  
 });
 
 //
